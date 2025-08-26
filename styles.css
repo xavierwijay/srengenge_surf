@@ -441,6 +441,27 @@ h6 {
   padding-bottom: 6px;
 }
 
+.section-title-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  display: block;
+  margin: 0 auto 12px auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .section-title-image {
+    max-height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title-image {
+    max-height: 80px;
+  }
+}
+
 .section-subtitle {
   text-align: center;
   color: var(--text-light);
@@ -478,7 +499,7 @@ h6 {
 /* Swiper Styles */
 .swiper {
   padding: 15px 0;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   display: flex;
   justify-content: center;
@@ -609,28 +630,29 @@ h6 {
 
 /* Swiper Navigation */
 .swiper-nav-button {
-  width: 36px;
-  height: 36px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background: rgba(237, 154, 85, 0.7);
+  background: rgba(237, 154, 85, 0.9);
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: var(--transition);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   border: none;
   outline: none;
-  opacity: 0.6;
+  opacity: 0.9;
   z-index: 10;
   position: relative;
 }
 
 .swiper-nav-button:hover {
   background: var(--primary-color);
-  transform: scale(1.05);
-  opacity: 0.9;
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: var(--shadow-xl);
 }
 
 .swiper-nav-button.swiper-button-disabled {
@@ -657,17 +679,21 @@ h6 {
 }
 
 .swiper-nav-button.swiper-button-prev {
-  left: 10px;
+  left: -20px;
+  overflow: visible;
+  z-index: 999;
 }
 
 .swiper-nav-button.swiper-button-next {
-  right: 10px;
+  right: -20px;
+  overflow: visible;
+  z-index: 999;
 }
 
 /* Arrow icon styles */
 .swiper-nav-button svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   color: var(--white);
 }
 
@@ -863,6 +889,7 @@ h6 {
   position: relative;
   display: flex;
   justify-content: center;
+  overflow: visible;
 }
 
 .packages-swiper {
@@ -871,7 +898,7 @@ h6 {
   max-width: 1200px;
   width: 100%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
 }
 
@@ -1185,6 +1212,7 @@ h6 {
   position: relative;
   display: flex;
   justify-content: center;
+  overflow: visible;
 }
 
 .reviews-swiper {
@@ -1193,7 +1221,7 @@ h6 {
   max-width: 1200px;
   width: 100%;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
 }
 
