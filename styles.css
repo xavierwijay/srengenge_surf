@@ -1743,7 +1743,7 @@ h6 {
 .contact {
   background: linear-gradient(135deg, var(--white), var(--secondary-color));
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 
 /* Prevent unwanted scrolling on contact-cta globally */
