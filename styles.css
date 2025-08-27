@@ -448,22 +448,104 @@ h6 {
 
 .section-title-image {
   max-width: 100%;
-  height: auto;
-  max-height: 150px;
+  width: auto;
+  height: 200px;
   display: block;
-  margin: 0 auto 12px auto;
+  margin: 0 auto 20px auto;
   object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 @media (max-width: 768px) {
   .section-title-image {
-    max-height: 100px;
+    height: 60px;
+    margin: 0 auto 16px auto;
   }
 }
 
 @media (max-width: 480px) {
   .section-title-image {
-    max-height: 80px;
+    height: 50px;
+    margin: 0 auto 12px auto;
+  }
+}
+
+/* Individual title image classes for each section */
+.about-title-image {
+  max-width: 100%;
+  width: auto;
+  height: 150px;
+  display: block;
+  margin: 0 auto 0px auto;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.gallery-title-image {
+  max-width: 100%;
+  width: auto;
+  height: 120px;
+  display: block;
+  margin: 0 auto 00px auto;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.packages-title-image {
+  max-width: 100%;
+  width: auto;
+  height: 120px;
+  display: block;
+  margin: 0 auto 0px auto;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.reviews-title-image {
+  max-width: 100%;
+  width: auto;
+  height: 100px;
+  display: block;
+  margin: 0 auto 0px auto;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.contact-title-image {
+  max-width: 100%;
+  width: auto;
+  height: 100px;
+  display: block;
+  margin: 0 auto 0px auto;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+@media (max-width: 768px) {
+  .about-title-image,
+  .gallery-title-image,
+  .packages-title-image,
+  .reviews-title-image,
+  .contact-title-image {
+    height: 60px;
+    margin: 0 auto 0px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title-image,
+  .gallery-title-image,
+  .packages-title-image,
+  .reviews-title-image,
+  .contact-title-image {
+    height: 60px;
+    margin: 0 auto 0px auto;
   }
 }
 
@@ -481,7 +563,7 @@ h6 {
 .about {
   background: linear-gradient(135deg, var(--secondary-color), #e5e7eb);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .about::before {
@@ -498,7 +580,92 @@ h6 {
 .about .container {
   position: relative;
   z-index: 2;
-  overflow: hidden;
+  overflow: visible;
+}
+
+/* About Section Stickers */
+.about-sticker {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.about-sticker:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.about-sticker-1 {
+  top: -100px;
+  left: 0%;
+  max-width: 100%;
+  width: auto;
+  height: 180px;
+  z-index: 10;
+}
+
+.about-sticker-2 {
+  top: -10px;
+  right: -4%;
+  max-width: 100%;
+  width: auto;
+  height: 250px;
+  z-index: 10;
+}
+
+.about-sticker-3 {
+  bottom: 70%;
+  left: 10%;
+  max-width: 100%;
+  width: auto;
+  height: 50px;
+  z-index: 10;
+}
+
+.about-sticker-4 {
+  bottom: 95%;
+  right: 12%;
+  max-width: 100%;
+  width: auto;
+  height: 70px;
+  z-index: 10;
+}
+
+/* Mobile adjustments for stickers */
+@media (max-width: 768px) {
+  .about-sticker-1 {
+    max-width: 100%;
+    width: auto;
+    height: 100px;
+    top: 90%;
+    left: 65%;
+  }
+
+  .about-sticker-2 {
+    max-width: 100%;
+    width: auto;
+    height: 120px;
+    top: 89%;
+    right: 70%;
+  }
+
+  .about-sticker-3 {
+    max-width: 100%;
+    width: auto;
+    height: 70px;
+    bottom: 60%;
+    left: 2%;
+  }
+
+  .about-sticker-4 {
+    max-width: 100%;
+    width: auto;
+    height: 70px;
+    bottom: 70%;
+    right: -1%;
+  }
 }
 
 /* Swiper Styles */
@@ -627,7 +794,163 @@ h6 {
   transform: scale(1.1);
 }
 
-/* Logo Link */
+/* Specific styling for each nav icon */
+.nav-icon-about {
+  height: 20px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.nav-icon-gallery {
+  height: 25px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.nav-icon-packages {
+  height: 20px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.nav-icon-reviews {
+  height: 18px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.nav-icon-contact {
+  height: 20px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+/* Hover effects for each nav icon */
+.nav-icon-about:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 3px 6px rgba(237, 154, 85, 0.4));
+}
+
+.nav-icon-gallery:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 3px 6px rgba(237, 154, 85, 0.4));
+}
+
+.nav-icon-packages:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 3px 6px rgba(237, 154, 85, 0.4));
+}
+
+.nav-icon-reviews:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 3px 6px rgba(237, 154, 85, 0.4));
+}
+
+.nav-icon-contact:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 3px 6px rgba(237, 154, 85, 0.4));
+}
+
+/* Mobile styling for all nav icons */
+@media (max-width: 768px) {
+  .nav-icon-about,
+  .nav-icon-gallery {
+    height: 100px;
+    width: auto;
+  }
+
+  .nav-icon-packages,
+  .nav-icon-reviews {
+    height: 24px;
+    width: auto;
+  }
+
+  .nav-icon-contact {
+    height: 22px;
+    width: auto;
+  }
+
+  .nav-icon-about:hover,
+  .nav-icon-gallery:hover,
+  .nav-icon-packages:hover,
+  .nav-icon-reviews:hover,
+  .nav-icon-contact:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 2px 4px rgba(237, 154, 85, 0.3));
+  }
+}
+
+/* Individual mobile icon styling for customization */
+.mobile-icon-about {
+  height: 22px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.mobile-icon-gallery {
+  height: 25px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.mobile-icon-packages {
+  height: 20px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.mobile-icon-reviews {
+  height: 18px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.mobile-icon-contact {
+  height: 22px;
+  width: auto;
+  transition: var(--transition);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* Individual mobile icon hover effects */
+.mobile-link:hover .mobile-icon-about,
+.mobile-link.active .mobile-icon-about {
+  filter: drop-shadow(0 2px 4px rgba(237, 154, 85, 0.4));
+  transform: scale(1.15);
+}
+
+.mobile-link:hover .mobile-icon-gallery,
+.mobile-link.active .mobile-icon-gallery {
+  filter: drop-shadow(0 2px 4px rgba(237, 154, 85, 0.4));
+  transform: scale(1.15);
+}
+
+.mobile-link:hover .mobile-icon-packages,
+.mobile-link.active .mobile-icon-packages {
+  filter: drop-shadow(0 2px 4px rgba(237, 154, 85, 0.4));
+  transform: scale(1.12);
+}
+
+.mobile-link:hover .mobile-icon-reviews,
+.mobile-link.active .mobile-icon-reviews {
+  filter: drop-shadow(0 2px 4px rgba(237, 154, 85, 0.4));
+  transform: scale(1.12);
+}
+
+.mobile-link:hover .mobile-icon-contact,
+.mobile-link.active .mobile-icon-contact {
+  filter: drop-shadow(0 2px 4px rgba(237, 154, 85, 0.4));
+  transform: scale(1.1);
+} /* Logo Link */
 .logo-link {
   display: block;
   text-decoration: none;
@@ -2909,7 +3232,7 @@ h6 {
 
   /* Fix about section scroll issues on mobile */
   .about {
-    overflow: hidden;
+    overflow: visible;
   }
 
   .about .swiper {
