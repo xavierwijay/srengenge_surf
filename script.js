@@ -817,8 +817,8 @@ let paxCounts = { 1: 1, 2: 1, 3: 1, 4: 1 };
 // Base prices untuk setiap package (bisa disesuaikan sesuai kebutuhan)
 const basePrice = {
   1: 500000, // Surf & Camp - 500K
-  2: 600000, // Beginner Package - 850K
-  3: 850000, // Beginner Package (copy) - 850K
+  2: 350000, // Beginner Package - 850K
+  3: 250000, // Beginner Package (copy) - 850K
   4: 850000, // Beginner Package (copy) - 850K
 };
 
