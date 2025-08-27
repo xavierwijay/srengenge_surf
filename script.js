@@ -883,7 +883,7 @@ function bookPackage(packageId, packageName) {
       ? `${(totalPrice / 1000000).toFixed(1)}M`
       : `${(totalPrice / 1000).toFixed(0)}K`;
 
-  const message = `Hai kak saya tertarik dengan ${packageName} ini.. sebanyak ${pax} pax tanggal yang ready di hari apa ya kak?`;
+  const message = `Hai kak saya tertarik dengan Paket ${packageName} ini.. sebanyak ${pax} pax tanggal yang ready di hari apa ya kak?`;
 
   const whatsappUrl = `https://wa.me/6285183001691?text=${encodeURIComponent(
     message
