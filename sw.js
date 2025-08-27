@@ -17,12 +17,15 @@ const urlsToCache = [
 // Install event - Cache critical resources
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE).then((cache) => {
-      console.log("Caching critical resources");
-      return cache.addAll(urlsToCache);
-    }).then(() => {
-      return self.skipWaiting();
-    })
+    caches
+      .open(STATIC_CACHE)
+      .then((cache) => {
+        console.log("Caching critical resources");
+        return cache.addAll(urlsToCache);
+      })
+      .then(() => {
+        return self.skipWaiting();
+      })
   );
 });
 
@@ -32,10 +35,10 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
 
   // Handle different types of requests
-  if (request.destination === 'document') {
+  if (request.destination === "document") {
     // Network first strategy for HTML
     event.respondWith(networkFirst(request));
-  } else if (request.destination === 'image') {
+  } else if (request.destination === "image") {
     // Cache first strategy for images
     event.respondWith(cacheFirst(request));
   } else {
@@ -53,7 +56,7 @@ async function networkFirst(request) {
     return networkResponse;
   } catch (error) {
     const cachedResponse = await caches.match(request);
-    return cachedResponse || new Response('Offline', { status: 503 });
+    return cachedResponse || new Response("Offline", { status: 503 });
   }
 }
 
@@ -63,23 +66,23 @@ async function cacheFirst(request) {
   if (cachedResponse) {
     return cachedResponse;
   }
-  
+
   try {
     const networkResponse = await fetch(request);
     const cache = await caches.open(DYNAMIC_CACHE);
     cache.put(request, networkResponse.clone());
     return networkResponse;
   } catch (error) {
-    return new Response('Image not available', { status: 404 });
+    return new Response("Image not available", { status: 404 });
   }
 }
 
 // Stale while revalidate strategy
 async function staleWhileRevalidate(request) {
   const cachedResponse = await caches.match(request);
-  const networkResponsePromise = fetch(request).then(response => {
+  const networkResponsePromise = fetch(request).then((response) => {
     const cache = caches.open(DYNAMIC_CACHE);
-    cache.then(c => c.put(request, response.clone()));
+    cache.then((c) => c.put(request, response.clone()));
     return response;
   });
 

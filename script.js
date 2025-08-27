@@ -123,13 +123,13 @@ class MobileMenuManager {
     const overlay = document.getElementById("mobileMenuOverlay");
     if (overlay) overlay.classList.add("active");
     this.isOpen = true;
-    
+
     // Prevent scrolling using multiple methods for better mobile support
     document.body.classList.add("no-scroll");
     document.documentElement.classList.add("no-scroll");
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
-    
+
     // Store current scroll position
     this.scrollY = window.scrollY;
     document.body.style.position = "fixed";
@@ -138,8 +138,12 @@ class MobileMenuManager {
 
     // Prevent touch scroll events
     this.preventScrollHandler = this.preventScroll.bind(this);
-    document.addEventListener('touchmove', this.preventScrollHandler, { passive: false });
-    document.addEventListener('wheel', this.preventScrollHandler, { passive: false });
+    document.addEventListener("touchmove", this.preventScrollHandler, {
+      passive: false,
+    });
+    document.addEventListener("wheel", this.preventScrollHandler, {
+      passive: false,
+    });
 
     // Animate links
     this.links.forEach((link, index) => {
@@ -152,13 +156,13 @@ class MobileMenuManager {
     const overlay = document.getElementById("mobileMenuOverlay");
     if (overlay) overlay.classList.remove("active");
     this.isOpen = false;
-    
+
     // Re-enable scrolling
     document.body.classList.remove("no-scroll");
     document.documentElement.classList.remove("no-scroll");
     document.body.style.overflow = "";
     document.documentElement.style.overflow = "";
-    
+
     // Restore scroll position
     document.body.style.position = "";
     document.body.style.top = "";
@@ -166,11 +170,11 @@ class MobileMenuManager {
     if (this.scrollY !== undefined) {
       window.scrollTo(0, this.scrollY);
     }
-    
+
     // Remove scroll prevention
     if (this.preventScrollHandler) {
-      document.removeEventListener('touchmove', this.preventScrollHandler);
-      document.removeEventListener('wheel', this.preventScrollHandler);
+      document.removeEventListener("touchmove", this.preventScrollHandler);
+      document.removeEventListener("wheel", this.preventScrollHandler);
     }
 
     // Reset transition delays
@@ -178,7 +182,7 @@ class MobileMenuManager {
       link.style.transitionDelay = "";
     });
   }
-  
+
   preventScroll(e) {
     // Allow scrolling within the mobile menu itself, but prevent background scroll
     if (!this.menu.contains(e.target)) {
@@ -793,7 +797,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loading = document.querySelector(".loading");
     if (loading) {
       loading.classList.add("hidden");
-      setTimeout(() => loading.style.display = "none", 500);
+      setTimeout(() => (loading.style.display = "none"), 500);
     }
   }, 800);
 });
