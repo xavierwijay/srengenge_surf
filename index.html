@@ -20,6 +20,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="format-detection" content="telephone=no" />
 
+    <!-- Performance optimizations -->
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="canonical" href="https://srengenge.com/" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://srengenge.com/" />
@@ -80,12 +85,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://unpkg.com" />
 
-    <!-- External CSS -->
+    <!-- External CSS - Load non-critical CSS asynchronously -->
     <link
-      rel="stylesheet"
+      rel="preload"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    /></noscript>
+
+    <link
+      rel="preload"
+      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+    /></noscript>
 
     <!-- Critical CSS Inline -->
     <style>

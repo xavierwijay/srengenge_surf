@@ -123,7 +123,23 @@ class MobileMenuManager {
     const overlay = document.getElementById("mobileMenuOverlay");
     if (overlay) overlay.classList.add("active");
     this.isOpen = true;
+    
+    // Prevent scrolling using multiple methods for better mobile support
+    document.body.classList.add("no-scroll");
+    document.documentElement.classList.add("no-scroll");
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+    
+    // Store current scroll position
+    this.scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${this.scrollY}px`;
+    document.body.style.width = "100%";
+
+    // Prevent touch scroll events
+    this.preventScrollHandler = this.preventScroll.bind(this);
+    document.addEventListener('touchmove', this.preventScrollHandler, { passive: false });
+    document.addEventListener('wheel', this.preventScrollHandler, { passive: false });
 
     // Animate links
     this.links.forEach((link, index) => {
@@ -136,12 +152,40 @@ class MobileMenuManager {
     const overlay = document.getElementById("mobileMenuOverlay");
     if (overlay) overlay.classList.remove("active");
     this.isOpen = false;
+    
+    // Re-enable scrolling
+    document.body.classList.remove("no-scroll");
+    document.documentElement.classList.remove("no-scroll");
     document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+    
+    // Restore scroll position
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+    if (this.scrollY !== undefined) {
+      window.scrollTo(0, this.scrollY);
+    }
+    
+    // Remove scroll prevention
+    if (this.preventScrollHandler) {
+      document.removeEventListener('touchmove', this.preventScrollHandler);
+      document.removeEventListener('wheel', this.preventScrollHandler);
+    }
 
     // Reset transition delays
     this.links.forEach((link) => {
       link.style.transitionDelay = "";
     });
+  }
+  
+  preventScroll(e) {
+    // Allow scrolling within the mobile menu itself, but prevent background scroll
+    if (!this.menu.contains(e.target)) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
   }
 }
 
@@ -743,52 +787,25 @@ class SrengengeApp {
 // Initialize the app when the script loads
 new SrengengeApp();
 
-// Additional loading screen fix for live server
+// Optimized loading screen management
 document.addEventListener("DOMContentLoaded", function () {
-  // Force hide loading screen after DOM is ready
   setTimeout(() => {
     const loading = document.querySelector(".loading");
     if (loading) {
       loading.classList.add("hidden");
-      setTimeout(() => {
-        loading.style.display = "none";
-      }, 500);
+      setTimeout(() => loading.style.display = "none", 500);
     }
-  }, 1000);
+  }, 800);
 });
 
-// Emergency fallback to hide loading screen
+// Fallback for slow connections
 setTimeout(() => {
   const loading = document.querySelector(".loading");
   if (loading) {
     loading.classList.add("hidden");
     loading.style.display = "none";
   }
-}, 3000);
-
-// Final emergency fallback for live server issues
-window.addEventListener("load", function () {
-  setTimeout(() => {
-    const loading = document.querySelector(".loading");
-    if (loading) {
-      loading.classList.add("hidden");
-      loading.style.display = "none";
-    }
-  }, 500);
-});
-
-// Force hide loading screen on any user interaction
-document.addEventListener(
-  "click",
-  function () {
-    const loading = document.querySelector(".loading");
-    if (loading && !loading.classList.contains("hidden")) {
-      loading.classList.add("hidden");
-      loading.style.display = "none";
-    }
-  },
-  { once: true }
-);
+}, 2500);
 
 // Global pax counter functions
 let paxCounts = { 1: 1, 2: 1, 3: 1, 4: 1 };
