@@ -718,10 +718,10 @@ class SrengengeApp {
   }
 
   initPaxCounter() {
-    // Initialize pax counters for all packages
+    // Initialize pax counters for all packages dengan harga masing-masing
     for (let i = 1; i <= 4; i++) {
       this.updatePaxDisplay(i);
-      this.updateTotalPrice(i, 850000);
+      this.updateTotalPrice(i, basePrice[i]); // Gunakan harga individual
     }
   }
 
@@ -814,12 +814,20 @@ setTimeout(() => {
 // Global pax counter functions
 let paxCounts = { 1: 1, 2: 1, 3: 1, 4: 1 };
 
+// Base prices untuk setiap package (bisa disesuaikan sesuai kebutuhan)
+const basePrice = {
+  1: 500000, // Surf & Camp - 500K
+  2: 600000, // Beginner Package - 850K
+  3: 850000, // Beginner Package (copy) - 850K
+  4: 850000, // Beginner Package (copy) - 850K
+};
+
 function increasePax(packageId) {
   if (paxCounts[packageId] < 20) {
     // Max 20 pax
     paxCounts[packageId]++;
     updatePaxDisplay(packageId);
-    updateTotalPrice(packageId, 850000);
+    updateTotalPrice(packageId, basePrice[packageId]);
   }
 }
 
@@ -828,7 +836,7 @@ function decreasePax(packageId) {
     // Min 1 pax
     paxCounts[packageId]--;
     updatePaxDisplay(packageId);
-    updateTotalPrice(packageId, 850000);
+    updateTotalPrice(packageId, basePrice[packageId]);
   }
 }
 
@@ -851,9 +859,9 @@ function updatePaxDisplay(packageId) {
   }
 }
 
-function updateTotalPrice(packageId, basePrice) {
+function updateTotalPrice(packageId, packageBasePrice) {
   const totalElement = document.getElementById(`total-${packageId}`);
-  const totalPrice = basePrice * paxCounts[packageId];
+  const totalPrice = packageBasePrice * paxCounts[packageId];
 
   if (totalElement) {
     // Format price with K for thousands
@@ -866,9 +874,10 @@ function updateTotalPrice(packageId, basePrice) {
   }
 }
 
-function bookPackage(packageId, packageName, basePrice) {
+function bookPackage(packageId, packageName) {
   const pax = paxCounts[packageId];
-  const totalPrice = basePrice * pax;
+  const packageBasePrice = basePrice[packageId];
+  const totalPrice = packageBasePrice * pax;
   const formattedPrice =
     totalPrice >= 1000000
       ? `${(totalPrice / 1000000).toFixed(1)}M`
@@ -876,7 +885,7 @@ function bookPackage(packageId, packageName, basePrice) {
 
   const message = `Hai kak saya tertarik dengan ${packageName} ini.. sebanyak ${pax} pax tanggal yang ready di hari apa ya kak?`;
 
-  const whatsappUrl = `https://wa.me/6287729388529?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/6285183001691?text=${encodeURIComponent(
     message
   )}`;
 
