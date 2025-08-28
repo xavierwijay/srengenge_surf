@@ -657,16 +657,16 @@ h6 {
   .about-sticker-2 {
     max-width: 100%;
     width: auto;
-    height: 120px;
-    top: 89%;
-    right: 70%;
+    height: 150px;
+    top: -7%;
+    right: 78%;
   }
 
   .about-sticker-3 {
     max-width: 100%;
     width: auto;
     height: 70px;
-    bottom: 60%;
+    bottom: 45%;
     left: 2%;
   }
 
@@ -674,7 +674,7 @@ h6 {
     max-width: 100%;
     width: auto;
     height: 70px;
-    bottom: 70%;
+    bottom: 80%;
     right: -1%;
   }
 }
