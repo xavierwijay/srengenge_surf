@@ -149,6 +149,21 @@ class MobileMenuManager {
     this.links.forEach((link, index) => {
       link.style.transitionDelay = `${index * 0.1}s`;
     });
+
+    // Force mobile menu footer visibility
+    setTimeout(() => {
+      const footer = document.querySelector(".mobile-menu-footer");
+      if (footer) {
+        footer.style.display = "flex";
+        footer.style.visibility = "visible";
+        footer.style.opacity = "1";
+        footer.style.transform = "translateX(0)";
+        footer.style.position = "relative";
+        footer.style.bottom = "0";
+        footer.style.marginTop = "auto";
+        footer.style.flexShrink = "0";
+      }
+    }, 200);
   }
 
   closeMenu() {
