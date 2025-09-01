@@ -429,6 +429,127 @@ h6 {
   }
 }
 
+/* iPad 11 inch specific optimizations - Hero Section Only */
+@media (min-width: 834px) and (max-width: 1194px) {
+  .hero {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll; /* Better performance on tablet */
+    padding: 100px 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-content {
+    max-width: 750px;
+    padding: 0 50px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+  }
+
+  .hero-title {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    width: auto;
+    height: auto;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5));
+  }
+
+  .hero-title img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hero-cta {
+    margin-top: 50px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero-cta .btn {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 55px;
+    min-height: 60px;
+    border-radius: 50px;
+    transition: all 0.25s ease-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .hero-cta .btn:hover {
+    transform: translateY(-3px);
+    padding: 18px 55px;
+    min-height: 60px;
+  }
+
+  .hero-cta .btn:active {
+    transform: translateY(-1px);
+    padding: 18px 55px;
+    min-height: 60px;
+  }
+
+  /* Enhanced hero background overlay for better contrast */
+  .hero::before {
+    background: linear-gradient(
+      135deg,
+      rgba(237, 154, 85, 0.15),
+      rgba(0, 0, 0, 0.3)
+    );
+  }
+}
+
+/* iPad 11 inch landscape specific adjustments */
+@media (min-width: 1024px) and (max-width: 1194px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+    padding: 120px 0 80px;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    padding: 0 60px;
+  }
+
+  .hero-title {
+    max-width: 650px;
+    margin-bottom: 45px;
+  }
+
+  .hero-cta {
+    margin-top: 45px;
+  }
+}
+
+/* iPad 11 inch portrait specific adjustments */
+@media (min-width: 834px) and (max-width: 1023px) and (orientation: portrait) {
+  .hero {
+    min-height: 100vh;
+    padding: 110px 0 70px;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    padding: 0 45px;
+  }
+
+  .hero-title {
+    max-width: 550px;
+    margin-bottom: 50px;
+  }
+
+  .hero-cta {
+    margin-top: 50px;
+  }
+}
+
 /* Section Styles */
 .section {
   padding: 60px 0;
