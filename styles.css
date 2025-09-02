@@ -5052,7 +5052,6 @@ h6 {
   }
 }
 
-<<<<<<< HEAD
 /* Additional Responsive Breakpoints for Contact Section */
 
 /* Tablet Portrait (768px - 1024px) */
@@ -5216,57 +5215,10 @@ h6 {
   }
 
   .social-link {
-=======
-/* Contact Cards Responsive Design */
-@media (max-width: 768px) {
-  /* Contact section container */
-  .contact-info-section {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
-    margin-bottom: 32px !important;
-    padding: 0 16px;
-    max-width: 100%;
-  }
-
-  /* Contact cards mobile sizing */
-  .contact-card,
-  .location-card {
-    padding: 24px 20px !important;
-    border-radius: 16px !important;
-    margin: 0 auto !important;
-    max-width: 100%;
->>>>>>> e1f7f7d631398f64d59ec5a2a6144d5b2909bd73
     width: 100%;
     box-sizing: border-box;
   }
 
-<<<<<<< HEAD
-  /* Enhanced touch targets for mobile */
-  .social-link {
-    min-height: 60px;
-    touch-action: manipulation;
-  }
-
-  /* Improved spacing for readability */
-  .social-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 40px;
-  }
-}
-
-/* Landscape orientation adjustments */
-@media (max-width: 768px) and (orientation: landscape) {
-  .contact-card {
-    position: relative;
-    top: auto;
-  }
-
-  .social-link {
-    padding: 12px;
-    min-height: 50px;
-=======
   /* Contact card header */
   .contact-card-header,
   .location-header {
@@ -5496,6 +5448,5 @@ h6 {
   .cta-btn {
     padding: 12px 20px !important;
     font-size: 0.95rem !important;
->>>>>>> e1f7f7d631398f64d59ec5a2a6144d5b2909bd73
   }
 }
