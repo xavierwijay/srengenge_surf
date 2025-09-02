@@ -2577,6 +2577,7 @@ h6 {
   -ms-user-select: none;
   user-select: none;
   pointer-events: auto !important;
+
 }
 
 .cta-btn.btn-primary {
@@ -4255,7 +4256,7 @@ h6 {
   }
 
   .cta-btn {
-    padding: 12px 24px;
+    padding: 32px 24px;
     font-size: 0.95rem;
     overflow: hidden;
     position: relative;
@@ -5051,6 +5052,7 @@ h6 {
   }
 }
 
+<<<<<<< HEAD
 /* Additional Responsive Breakpoints for Contact Section */
 
 /* Tablet Portrait (768px - 1024px) */
@@ -5214,10 +5216,31 @@ h6 {
   }
 
   .social-link {
+=======
+/* Contact Cards Responsive Design */
+@media (max-width: 768px) {
+  /* Contact section container */
+  .contact-info-section {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    margin-bottom: 32px !important;
+    padding: 0 16px;
+    max-width: 100%;
+  }
+
+  /* Contact cards mobile sizing */
+  .contact-card,
+  .location-card {
+    padding: 24px 20px !important;
+    border-radius: 16px !important;
+    margin: 0 auto !important;
+    max-width: 100%;
+>>>>>>> e1f7f7d631398f64d59ec5a2a6144d5b2909bd73
     width: 100%;
     box-sizing: border-box;
   }
 
+<<<<<<< HEAD
   /* Enhanced touch targets for mobile */
   .social-link {
     min-height: 60px;
@@ -5243,5 +5266,236 @@ h6 {
   .social-link {
     padding: 12px;
     min-height: 50px;
+=======
+  /* Contact card header */
+  .contact-card-header,
+  .location-header {
+    margin-bottom: 20px !important;
+    text-align: center;
+  }
+
+  /* Icons mobile sizing */
+  .contact-icon,
+  .location-icon {
+    width: 56px !important;
+    height: 56px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .contact-icon svg,
+  .location-icon svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  /* Typography mobile sizing */
+  .contact-title,
+  .location-title {
+    font-size: 1.4rem !important;
+    margin-bottom: 8px !important;
+    line-height: 1.3;
+  }
+
+  .contact-description,
+  .location-description {
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+
+  /* Social media grid mobile */
+  .social-media-grid {
+    gap: 12px !important;
+    margin-top: 24px;
+  }
+
+  /* Social links mobile optimization */
+  .social-link {
+    padding: 16px 14px !important;
+    gap: 14px !important;
+    border-radius: 14px !important;
+    min-height: 64px;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Social icons mobile */
+  .social-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    flex-shrink: 0;
+  }
+
+  .social-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  /* Social content mobile */
+  .social-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .social-content h4 {
+    font-size: 1.1rem !important;
+    margin-bottom: 4px !important;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .social-content p {
+    font-size: 0.9rem !important;
+    margin-bottom: 6px !important;
+    line-height: 1.3;
+    color: var(--text-light);
+  }
+
+  .social-status {
+    font-size: 0.8rem !important;
+    padding: 4px 10px !important;
+    border-radius: 12px;
+    display: inline-block;
+    font-weight: 600;
+  }
+
+  /* Location info mobile */
+  .location-info {
+    margin-bottom: 20px;
+  }
+
+  .address h4 {
+    font-size: 1.2rem !important;
+    margin-bottom: 8px !important;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  .address p {
+    font-size: 0.9rem !important;
+    margin-bottom: 6px !important;
+    line-height: 1.4;
+    color: var(--text-light);
+  }
+
+  /* Map container mobile */
+  .map-container {
+    margin-top: 20px;
+  }
+
+  .map-wrapper {
+    border-radius: 12px !important;
+    overflow: hidden;
+    height: 250px;
+  }
+
+  .map-wrapper iframe {
+    height: 250px !important;
+    width: 100% !important;
+  }
+
+  /* Contact CTA mobile */
+  .contact-cta {
+    margin-top: 32px !important;
+    padding: 0 16px;
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 100%;
+    padding: 12px 0px;
+  }
+
+  .cta-content h3 {
+    font-size: 2rem !important;
+    margin-bottom: 12px !important;
+    line-height: 1.2;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem !important;
+    margin-bottom: 24px !important;
+    line-height: 1.5;
+  }
+
+  .cta-buttons {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: center;
+  }
+
+  .cta-btn {
+    width: 100% !important;
+    max-width: 280px !important;
+    padding: 14px 24px !important;
+    font-size: 1rem !important;
+    justify-content: center !important;
+    min-height: 48px;
+    box-sizing: border-box;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .contact-info-section {
+    padding: 0 12px !important;
+  }
+
+  .contact-card,
+  .location-card {
+    padding: 20px 16px !important;
+    border-radius: 12px !important;
+  }
+
+  .contact-title,
+  .location-title {
+    font-size: 1.3rem !important;
+  }
+
+  .social-link {
+    padding: 14px 12px !important;
+    gap: 12px !important;
+    min-height: 60px;
+  }
+
+  .social-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+  }
+
+  .social-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .social-content h4 {
+    font-size: 1rem !important;
+  }
+
+  .social-content p {
+    font-size: 0.85rem !important;
+  }
+
+  .social-status {
+    font-size: 0.75rem !important;
+    padding: 3px 8px !important;
+  }
+
+  .cta-content h3 {
+    font-size: 1.8rem !important;
+  }
+
+  .cta-content p {
+    font-size: 1rem !important;
+  }
+
+  .cta-btn {
+    padding: 12px 20px !important;
+    font-size: 0.95rem !important;
+>>>>>>> e1f7f7d631398f64d59ec5a2a6144d5b2909bd73
   }
 }
