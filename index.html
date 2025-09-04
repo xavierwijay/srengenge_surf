@@ -564,8 +564,7 @@
           src="/img/stiker/bintanglaut.png"
           alt="Decorative sticker"
           class="about-sticker about-sticker-5"
-          data-aos="fade-in"
-          data-aos-delay="500"
+          
         />
         <header class="section-header" data-aos="fade-up">
           <img
@@ -578,105 +577,230 @@
           </p>
         </header>
 
-        <div class="gallery-grid" data-aos="fade-up" data-aos-delay="100">
-          <!-- Main Preview Image (Always Visible) -->
-          <div class="gallery-item gallery-main" data-aos="zoom-in">
-            <img
-              src="./img/gallery1.jpg"
-              alt="Surf Trip - Sunset Session"
-              class="gallery-image"
-              loading="lazy"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="gallery-placeholder" style="display: none">
-              <div class="placeholder-icon">📸</div>
-              <p>Surf Trip Image 1</p>
+        <!-- Professional Gallery Container -->
+        <div class="gallery-wrapper">
+          <!-- Mobile Gallery Layout -->
+          <div class="gallery-mobile">
+            <!-- Mobile Main Photos (Always Visible) -->
+            <div class="mobile-gallery-main">
+              <div
+                class="mobile-gallery-card featured"
+              >
+                <img
+                  src="img/surf.JPG"
+                  alt="Surf Session"
+                  class="gallery-img"
+                  loading="lazy"
+                  data-aos="fade-right"
+                />
+                <div class="mobile-overlay">
+                  <h4>Epic Surf Session</h4>
+                  <p>Perfect waves at Wediombo Beach</p>
+                </div>
+              </div>
+
+              <div
+                class="mobile-gallery-card"
+              >
+                <img
+                  src=""
+                  alt="Beach Food"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="mobile-overlay">
+                  <h4>Local Cuisine</h4>
+                  <p>Fresh seafood & Indonesian dishes</p>
+                </div>
+              </div>
+
+              <div
+                class="mobile-gallery-card"
+              >
+                <img
+                  src="img/kegiatancamp.jpeg"
+                  alt="Camp Activities"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="mobile-overlay">
+                  <h4>Beach Activities</h4>
+                  <p>Fun beyond surfing</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Hidden Photos -->
+            <div class="mobile-gallery-hidden">
+              <div class="mobile-gallery-card">
+                <img
+                  src="img/memory.JPG"
+                  alt="Beach Memories"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="mobile-overlay">
+                  <h4>Beautiful Memories</h4>
+                  <p>Moments to remember</p>
+                </div>
+              </div>
+
+              <div class="mobile-gallery-card">
+                <img
+                  src="img/hero1.png"
+                  alt="Sunrise Surf"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="mobile-overlay">
+                  <h4>Sunrise Sessions</h4>
+                  <p>Early morning surf magic</p>
+                </div>
+              </div>
+
+              <div class="mobile-gallery-card">
+                <img
+                  src="img/surf.JPG"
+                  alt="Surf Training"
+                  class="gallery-img"
+                  loading="lazy"
+                />
+                <div class="mobile-overlay">
+                  <h4>Surf Training</h4>
+                  <p>Learn from the pros</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Expand Button -->
+            <div class="mobile-expand-section">
+              <button class="mobile-expand-btn" id="mobileExpandBtn">
+                <span class="expand-text">Lihat Semua Foto</span>
+                <span class="collapse-text">Tutup</span>
+                <div class="expand-arrow">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M7.41 8.84L12 13.42l4.59-4.58L18 10.25l-6 6-6-6z"
+                    />
+                  </svg>
+                </div>
+              </button>
             </div>
           </div>
 
-          <!-- Hidden Gallery Items (Initially Hidden on Mobile) -->
-          <div class="gallery-item gallery-hidden" data-aos="zoom-in">
-            <img
-              src="./img/gallery2.jpg"
-              alt="Surf Trip - Wave Riding"
-              class="gallery-image"
-              loading="lazy"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="gallery-placeholder" style="display: none">
-              <div class="placeholder-icon">🏄‍♂️</div>
-              <p>Surf Trip Image 2</p>
+          <!-- Desktop Gallery Layout -->
+          <div class="gallery-desktop">
+            <div class="desktop-gallery-grid">
+              <!-- Row 1 -->
+              <div
+                class="desktop-card large"
+              >
+                <img
+                  src="img/surf.JPG"
+                  alt="Epic Surf Session"
+                  class="desktop-img"
+                  loading="lazy"
+                />
+                <div class="desktop-overlay">
+                  <div class="desktop-content">
+                    <h3>Epic Surf Session</h3>
+                    <p>Perfect waves and golden sunsets at Wediombo Beach</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="desktop-card medium"
+              >
+                <img
+                  src="img/food.JPG"
+                  alt="Local Cuisine"
+                  class="desktop-img"
+                  loading="lazy"
+                />
+                <div class="desktop-overlay">
+                  <div class="desktop-content">
+                    <h4>Local Cuisine</h4>
+                    <p>Fresh seafood & traditional Indonesian flavors</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="desktop-card medium"
+              >
+                <img
+                  src="img/kegiatancamp.jpeg"
+                  alt="Beach Activities"
+                  class="desktop-img"
+                  loading="lazy"
+                />
+                <div class="desktop-overlay">
+                  <div class="desktop-content">
+                    <h4>Beach Activities</h4>
+                    <p>Adventure beyond surfing</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div
+                class="desktop-card small"
+              >
+                <img
+                  src="img/memory.JPG"
+                  alt="Beach Memories"
+                  class="desktop-img"
+                  loading="lazy"
+                />
+                <div class="desktop-overlay">
+                  <div class="desktop-content">
+                    <h4>Memories</h4>
+                    <p>Unforgettable moments</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="desktop-card wide"
+              >
+                <img
+                  src="img/hero1.png"
+                  alt="Sunrise Sessions"
+                  class="desktop-img"
+                  loading="lazy"
+                />
+                <div class="desktop-overlay">
+                  <div class="desktop-content">
+                    <h4>Sunrise Sessions</h4>
+                    <p>Early morning surf with breathtaking views</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="desktop-card small"
+              >
+                <img
+                  src="img/surf.JPG"
+                  alt="Surf Training"
+                  class="desktop-img"
+                  loading="lazy"
+                />
+                <div class="desktop-overlay">
+                  <div class="desktop-content">
+                    <h4>Training</h4>
+                    <p>Professional instruction</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="gallery-item gallery-hidden" data-aos="zoom-in">
-            <img
-              src="./img/gallery3.jpg"
-              alt="Surf Trip - Beach View"
-              class="gallery-image"
-              loading="lazy"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="gallery-placeholder" style="display: none">
-              <div class="placeholder-icon">🌊</div>
-              <p>Surf Trip Image 3</p>
-            </div>
-          </div>
-
-          <div class="gallery-item gallery-hidden" data-aos="zoom-in">
-            <img
-              src="./img/gallery4.jpg"
-              alt="Surf Trip - Camp Life"
-              class="gallery-image"
-              loading="lazy"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="gallery-placeholder" style="display: none">
-              <div class="placeholder-icon">🏖️</div>
-              <p>Surf Trip Image 4</p>
-            </div>
-          </div>
-
-          <div class="gallery-item gallery-hidden" data-aos="zoom-in">
-            <img
-              src="./img/gallery5.jpg"
-              alt="Surf Trip - Sunrise"
-              class="gallery-image"
-              loading="lazy"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="gallery-placeholder" style="display: none">
-              <div class="placeholder-icon">🌅</div>
-              <p>Surf Trip Image 5</p>
-            </div>
-          </div>
-
-          <div class="gallery-item gallery-hidden" data-aos="zoom-in">
-            <img
-              src="./img/gallery6.jpg"
-              alt="Surf Trip - Activities"
-              class="gallery-image"
-              loading="lazy"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div class="gallery-placeholder" style="display: none">
-              <div class="placeholder-icon">🎣</div>
-              <p>Surf Trip Image 6</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Expand Button (Mobile Only) -->
-        <div class="gallery-expand-container" data-aos="fade-up">
-          <button
-            class="gallery-expand-btn"
-            id="expandGallery"
-            aria-expanded="false"
-          >
-            <span class="expand-text">Lihat Foto Lainnya</span>
-            <span class="collapse-text" style="display: none">Sembunyikan</span>
-            <span class="expand-icon">📷</span>
-          </button>
         </div>
       </div>
     </section>
@@ -1259,7 +1383,7 @@
       aria-labelledby="contact-title"
     >
       <div class="container">
-        <header class="section-header" data-aos="fade-up">
+        <header class="section-header">
           <img
             id="contact-title"
             class="contact-title-image"
@@ -1271,10 +1395,10 @@
           </p>
         </header>
 
-        <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-content" data-aos="fade-up" >
           <!-- Contact Info & Social Media -->
           <div class="contact-info-section">
-            <div class="contact-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="contact-card" data-aos="fade-up">
               <div class="contact-card-header">
                 <div class="contact-icon">
                   <svg
@@ -1305,7 +1429,6 @@
                   rel="noopener noreferrer"
                   class="social-link whatsapp"
                   data-aos="fade-up"
-                  data-aos-delay="200"
                 >
                   <div class="social-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1328,7 +1451,6 @@
                   rel="noopener noreferrer"
                   class="social-link instagram"
                   data-aos="fade-up"
-                  data-aos-delay="250"
                 >
                   <div class="social-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1348,8 +1470,6 @@
                 <a
                   href="mailto:srengengetrip@gmail.com?subject=Inquiry about Surf Trip&body=Hi, I'm interested in learning more about your surf trip packages."
                   class="social-link email"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
                 >
                   <div class="social-icon">
                     <svg
@@ -1376,7 +1496,7 @@
             </div>
 
             <!-- Location & Map -->
-            <div class="location-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="location-card">
               <div class="location-header">
                 <div class="location-icon">
                   <svg
@@ -1414,8 +1534,6 @@
               <!-- Embedded Map -->
               <div
                 class="map-container"
-                data-aos="fade-up"
-                data-aos-delay="350"
               >
                 <div class="map-wrapper">
                   <iframe
@@ -1435,7 +1553,7 @@
           </div>
 
           <!-- Call to Action -->
-          <div class="contact-cta" data-aos="fade-up" data-aos-delay="400">
+          <div class="contact-cta">
             <div class="cta-content">
               <h3>Ready to Surf?</h3>
               <p>

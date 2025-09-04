@@ -907,3 +907,221 @@ function bookPackage(packageId, packageName) {
   // Open WhatsApp in new tab
   window.open(whatsappUrl, "_blank");
 }
+
+// ===== DUAL GALLERY SYSTEM - MOBILE EXPAND/COLLAPSE =====
+class DualGallerySystem {
+  constructor() {
+    this.mobileExpandBtn = null;
+    this.mobileHiddenGallery = null;
+    this.isExpanded = false;
+    this.isAnimating = false;
+
+    this.init();
+  }
+
+  init() {
+    // Wait for DOM content to load
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => this.setup());
+    } else {
+      this.setup();
+    }
+  }
+
+  setup() {
+    this.mobileExpandBtn = document.getElementById("mobileExpandBtn");
+    this.mobileHiddenGallery = document.querySelector(".mobile-gallery-hidden");
+
+    if (this.mobileExpandBtn) {
+      this.mobileExpandBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.handleToggle();
+      });
+    }
+
+    // Handle window resize
+    window.addEventListener(
+      "resize",
+      this.debounce(() => {
+        this.handleResize();
+      }, 250)
+    );
+  }
+
+  handleToggle() {
+    if (this.isAnimating) return;
+
+    this.isExpanded = !this.isExpanded;
+    this.isAnimating = true;
+
+    if (this.isExpanded) {
+      this.expandGallery();
+    } else {
+      this.collapseGallery();
+    }
+
+    this.updateButton();
+  }
+
+  expandGallery() {
+    if (!this.mobileHiddenGallery) return;
+
+    // Add show class with animation
+    this.mobileHiddenGallery.style.display = "flex";
+
+    // Force reflow for animation
+    this.mobileHiddenGallery.offsetHeight;
+
+    // Add show class
+    this.mobileHiddenGallery.classList.add("show");
+
+    // Add staggered animations to cards
+    const hiddenCards = this.mobileHiddenGallery.querySelectorAll(
+      ".mobile-gallery-card"
+    );
+    hiddenCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.style.transform = "translateY(0)";
+        card.style.opacity = "1";
+      }, index * 100);
+    });
+
+    // Animation complete
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 600);
+  }
+
+  collapseGallery() {
+    if (!this.mobileHiddenGallery) return;
+
+    // Add exit animations to cards
+    const hiddenCards = this.mobileHiddenGallery.querySelectorAll(
+      ".mobile-gallery-card"
+    );
+    const reverseCards = Array.from(hiddenCards).reverse();
+
+    reverseCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.style.transform = "translateY(20px)";
+        card.style.opacity = "0";
+      }, index * 50);
+    });
+
+    // Remove show class and hide
+    setTimeout(() => {
+      this.mobileHiddenGallery.classList.remove("show");
+
+      setTimeout(() => {
+        this.mobileHiddenGallery.style.display = "none";
+        this.isAnimating = false;
+
+        // Scroll back to gallery
+        this.scrollToGallery();
+      }, 300);
+    }, 200);
+  }
+
+  updateButton() {
+    if (!this.mobileExpandBtn) return;
+
+    this.mobileExpandBtn.classList.toggle("expanded", this.isExpanded);
+
+    // Add button press animation
+    this.mobileExpandBtn.style.transform = "scale(0.95)";
+    setTimeout(() => {
+      this.mobileExpandBtn.style.transform = "";
+    }, 150);
+  }
+
+  scrollToGallery() {
+    if (window.innerWidth > 767) return; // Only on mobile
+
+    const gallerySection = document.getElementById("gallery");
+    if (gallerySection) {
+      const headerHeight =
+        document.querySelector(".header")?.offsetHeight || 70;
+      const targetPosition = gallerySection.offsetTop - headerHeight - 20;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+  }
+
+  handleResize() {
+    // Reset on desktop
+    if (window.innerWidth > 767) {
+      if (this.isExpanded) {
+        this.isExpanded = false;
+        if (this.mobileHiddenGallery) {
+          this.mobileHiddenGallery.classList.remove("show");
+          this.mobileHiddenGallery.style.display = "none";
+        }
+        this.updateButton();
+      }
+    }
+  }
+
+  // Utility functions
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+}
+
+// Initialize Dual Gallery System
+const dualGallery = new DualGallerySystem();
+
+// Add CSS animations dynamically
+const galleryAnimationCSS = `
+<style>
+.mobile-gallery-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mobile-gallery-hidden .mobile-gallery-card {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.mobile-gallery-hidden.show .mobile-gallery-card {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@keyframes mobileCardSlideIn {
+  from {
+    transform: translateY(30px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes mobileCardSlideOut {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+  }
+}
+</style>
+`;
+
+// Add styles to head
+document.head.insertAdjacentHTML("beforeend", galleryAnimationCSS);
