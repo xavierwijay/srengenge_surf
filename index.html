@@ -34,7 +34,7 @@
     <!-- Security Headers -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'none'; object-src 'none'; base-uri 'self';"
+      content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https://www.google.com; object-src 'none'; base-uri 'self';"
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
@@ -1512,12 +1512,13 @@
               <div class="map-container">
                 <div class="map-wrapper">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4877982207336!2d110.70654007398318!3d-8.153508081673303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bb914295b2399%3A0x499cc995cc9e6104!2sSrengenge%20Surf%20Camp!5e0!3m2!1sid!2sid!4v1755360758243!5m2!1sid!2sid"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.48774569638!2d110.709115!3d-8.153513400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bb914295b2399%3A0x499cc995cc9e6104!2sSrengenge%20Surf%20Camp!5e0!3m2!1sid!2sid!4v1757084913347!5m2!1sid!2sid"
                     width="100%"
                     height="300"
                     style="border: 0; border-radius: 12px; pointer-events: none"
                     scrolling="no"
                     loading="lazy"
+                    allowfullscreen=""
                     referrerpolicy="no-referrer-when-downgrade"
                     title="Srengenge Surf Camp Location"
                   >
