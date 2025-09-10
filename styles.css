@@ -226,7 +226,7 @@ h6 {
 }
 
 .btn-outline:hover {
-  background: var(--primary-color);
+  background: rgb(253, 213, 152);
   color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(237, 154, 85, 0.3);
